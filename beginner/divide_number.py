@@ -5,10 +5,10 @@
 def memoise(f):
     mem = {}
 
-    def memoised_f(n, k, min_val):
-        key = tuple([n, k, min_val])
+    def memoised_f(*args):
+        key = tuple(args)
         if key not in mem:
-            mem[key] = f(n, k, min_val)
+            mem[key] = f(*args)
         return mem[key]
     return memoised_f
 

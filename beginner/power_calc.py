@@ -12,11 +12,11 @@ def memoise(f):
 
     mem = {}
 
-    def memoised_f(x, n):
-        if n not in mem:
-            mem[n] = f(x, n)
-        return mem[n]
-
+    def memoised_f(*args):
+        key = tuple(args)
+        if key not in mem:
+            mem[key] = f(*args)
+        return mem[key]
     return memoised_f
 
 
