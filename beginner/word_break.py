@@ -12,7 +12,7 @@ def wb(d, s, decomp, l):
         return True
     else:
         for item in d:
-            if item == s[:len(item)]:
+            if s.startswith(item):
                 decomp_add = decomp + ' ' + item
                 if wb(d, s[len(item):], decomp_add, l):
                     decomp = decomp_add
