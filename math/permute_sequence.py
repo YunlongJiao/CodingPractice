@@ -1,6 +1,40 @@
 # NOTE
-# An equiv but much simpler (7-line) implementation is found at
-# https://leetcode.com/problems/permutation-sequence/discuss/22607/7-line-Python-solution-get-each-index-by-curr_k-(n-1)!-curr_k-(n-2)!-...-curr_k-0!
+
+
+# def permute_sequence(n, k):
+#
+#     fac = 1
+#     for i in range(1, n+1):  # equiv to: fac = math.factorial(n)
+#         fac *= i
+#
+#     num = 0  # in fact, num = '' returns str
+#     occurred = set()
+#     for i in range(n):
+#         fac /= (n-i)
+#         idx = n - i
+#         while idx*fac >= k:
+#             idx -= 1
+#         k -= idx*fac  # equiv to: idx, k = divmod(k, fac)
+#
+#         t = 0
+#         digit = 0
+#         for digit in range(n+1):
+#             if digit not in occurred:
+#                 t += 1
+#             if t > idx + 1:
+#                 break
+#         num = num * 10 + digit
+#         occurred.add(digit)
+#
+#         if k == 0:
+#             break
+#         elif k < 0:
+#             raise ValueError
+#
+#     return str(num)
+
+
+import math
 
 
 def permute_sequence(n, k):
@@ -12,37 +46,20 @@ def permute_sequence(n, k):
 
     https://leetcode.com/problems/permutation-sequence/
 
+    This is an equiv solution to above taken from
+    https://leetcode.com/problems/permutation-sequence/discuss/22607/7-line-Python-solution-get-each-index-by-curr_k-(n-1)!-curr_k-(n-2)!-...-curr_k-0!
+
     """
 
-    fac = 1
-    for i in range(1, n+1):  # equiv to: fac = math.factorial(n)
-        fac *= i
+    k, fac, candidate, result = k - 1, math.factorial(n), ['1', '2', '3', '4', '5', '6', '7', '8', '9'][:n], []
 
-    num = 0
-    occurred = set()
-    for i in range(n):
-        fac /= (n-i)
-        idx = n - i
-        while idx*fac >= k:
-            idx -= 1
-        k -= idx*fac  # equiv to: idx, k = divmod(k, fac)
+    for i in range(n, 0, -1):
+        fac //= i
+        index, k = divmod(k, fac)
+        result.append(candidate[index])
+        del candidate[index]  # or candidate.pop(index) (NB list.remove(element) not index)
 
-        t = 0
-        digit = 0
-        for digit in range(n+1):
-            if digit not in occurred:
-                t += 1
-            if t > idx + 1:
-                break
-        num = num * 10 + digit
-        occurred.add(digit)  # in fact, n cannot exceed 9, so may maintain ['1',...,'9'][:n] and remove digit one-by-one
-
-        if k == 0:
-            break
-        elif k < 0:
-            raise ValueError
-
-    return str(num)
+    return ''.join(result)
 
 
 if __name__ == '__main__':
