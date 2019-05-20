@@ -1,5 +1,5 @@
 # NOTE:
-# A bit more complicated to find all decompositions - much simpler if only asked existence Yes/No!
+# This is to find all decompositions, as compared to ../string/word_break.py
 
 
 def wb(d, s, decomp, l):
@@ -41,3 +41,6 @@ if __name__ == '__main__':
     print(word_break(d, 'ilike'))
     print(word_break(d, 'ilikesamsung'))
     print(word_break(d, 'mangosamsungicecream'))
+
+    d = ['car', 'ca', 'rs']
+    print(word_break(d, 'cars'))
