@@ -23,10 +23,10 @@ def valid_parentheses(s):
         if c in pairs:
             collect.append(pairs[c])
         else:
-            if len(collect) == 0 or not collect.pop() == c:
+            if len(collect) == 0 or collect.pop() != c:
                 is_valid = False
 
-    if not len(collect) == 0:
+    if len(collect) != 0:
         is_valid = False
 
     return is_valid

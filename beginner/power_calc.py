@@ -33,7 +33,11 @@ def power_calc(x, n):
     if n == 1:
         return x
     else:
-        return power_calc(x, n//2) * power_calc(x, n - n//2)
+        y = power_calc(x, n//2)
+        if n % 2 == 0:
+            return y*y
+        else:
+            return y*y*x
 
 
 if __name__ == '__main__':

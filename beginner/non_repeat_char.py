@@ -10,16 +10,13 @@ def non_repeat_char(string):
 
     """
 
-    count = {}
+    count = dict()
 
     for i, s in enumerate(string):
-        if s not in count:
-            count[s] = 1
-        else:
-            count[s] += 1
+        count[s] = count.get(s, 0) + 1
 
-    for s,c in count.items():
-        if c == 1:
+    for s in string:
+        if count[s] == 1:
             return s
 
     return -1

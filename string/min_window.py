@@ -12,8 +12,6 @@ def min_window(s, t):
 
     https://leetcode.com/problems/minimum-window-substring/
 
-    This solution was provided by leetcode.
-
     """
 
     n = len(s)
