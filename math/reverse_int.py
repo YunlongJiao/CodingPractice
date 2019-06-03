@@ -4,6 +4,7 @@
 def reverse_int(x):
     """
     7. Reverse Integer
+
     Given a 32-bit signed integer, reverse digits of an integer.
 
     Note: Assume we are dealing with an environment which could only store integers within the 32-bit

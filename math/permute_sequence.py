@@ -40,6 +40,7 @@ import math
 def permute_sequence(n, k):
     """
     60. Permutation Sequence
+
     The set [1,2,3,...,n] contains a total of n! unique permutations.
     By listing and labeling all of the permutations in increasing order.
     Given n and k, return the kth permutation sequence.

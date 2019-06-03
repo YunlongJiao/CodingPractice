@@ -19,6 +19,7 @@ class ListNode:
 def merge_two_lists(l1, l2):
     """
     21. Merge Two Sorted Lists
+
     Merge two sorted linked lists and return it as a new list.
     The new list should be made by splicing together the nodes of the first two lists.
 

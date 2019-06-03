@@ -7,6 +7,7 @@
 def longest_increasing_subseq(nums):
     """
     300. Longest Increasing Subsequence
+
     Given an unsorted array of integers, find the length of longest increasing subsequence.
 
     https://leetcode.com/problems/longest-increasing-subsequence/
