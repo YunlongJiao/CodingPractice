@@ -9,7 +9,7 @@ def regex_match(s, p):
     Given an input string (s) and a pattern (p), implement regular expression matching,
     with support for '.' (any single char) and '*' (zero or more of the preceding char).
     The matching should cover the entire input string (not partial).
-    Return "true" if match or "false" if not match.
+    Return True if match or False if not match.
 
     Note:
     s could be empty and contains only lowercase letters a-z.
@@ -42,6 +42,7 @@ def regex_match(s, p):
 
 
 if __name__ == '__main__':
+    print(regex_match("abc", ""))
     print(regex_match("abc", "a.c"))
     print(regex_match("aa", "a"))
     print(regex_match("a", "aa"))
